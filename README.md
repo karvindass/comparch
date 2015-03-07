@@ -135,7 +135,7 @@ Lab4. Augment the Existing LC-3b Microarchitecture to Support Detection and Hand
 We are required to augment the existing LC-3b microarchitecture to support detection and handling of one type of interrupts (timer) and three types of exceptions (protection, unaligned access, and unknown opcode). We have to provide microarchitectural support for handling interruptions and exceptions as well as code for their service routine.
 
   1. The changes made to state machine, data path, microsequencer.
-  2. The assembly code for the interrupt service routine, the interrupt/exception vector table, the protection exception handler, the unaligned access exception handler, the unknown opcode exception handler, the user program, and the data for locations xC000– xC013, called int.asm, vector_table.asm, except_prot.asm, except_unaligned.asm, except_unknown.asm, add.asm, and data.asm, respectively.
+  2. The assembly code for the interrupt service routine, the interrupt/exception vector table, the protection exception handler, the unaligned access exception handler, the unknown opcode exception handler, the user program, and the data for locations xC000– xC013.
   3. The new microcode called ucode4.
  
 Here is how I implement this.
@@ -153,6 +153,41 @@ The page table contains PTEs for both the system and user space pages. It reside
 ![image](https://github.com/sparkfiresprairie/comparch/blob/master/pte.png)
     
 If the protection (P) bit is cleared, the page is protected: it can only be accessed in supervisor mode or by a TRAP instruction. Otherwise, the page can be accessed in either user or supervisor mode. The valid (V) bit indicates whether the page is mapped to a frame in physical memory (V = 1) or not (V = 0). The modified (M) bit indicates whether the page has been written to since it was brought in (M = 1) or not (M = 0). The reference (R) bit is set on every access to the page and cleared every timer interrupt.
+
+We should provide the following materials:
+
+  1. The changes made to state machine, data path, microsequencer.
+  2. The assembly code for the interrupt service routine, the interrupt/exception vector table, the page table, the user program, and the data for user program.
+  3. The new microcode called ucode5.
+
+Here is how I implement this.
+
+Lab6. Write a Simulator for the Pipelined LC-3b
+------------------------------------------------
+The LC-3b pipeline has five stages. The F stage is used for fetching an instruction into the DE latches. In the DE stage, the control store is accessed to generate some of the control signals required for processing the instruction. In parallel with the control store access, the register file is also accessed to retrieve the register operands of the instruction. The Dependency Check Logic determines if the instruction in the DE stage is reading a value produced by an older instruction that is in the AGEX, MEM, or SR stage. If so, the instruction in the DE stage should not be propagated to the next stage (this will be described in more detail later). The AGEX stage performs address computation for instructions that need to generate an address. Operate instructions also produce their result in this stage using the ALU or the shifter. In the MEM stage, load instructions read data from memory, and store instructions write data to memory. Control instructions have to wait until the MEM stage to update the PC since TRAP instructions need to obtain the starting address of the TRAP sevice routine from memory. The direction of a conditional branch instruction is also determined in the MEM stage. Instructions that write into a destination register and set the condition codes perform these updates in the SR stage. All other instructions do nothing in the SR stage.All of these blocks, including the “Dependency Check Logic,” generate outputs that control the stalling of the pipeline and the insertion of pipeline “bubbles”.
+
+The data path of pipelined LC-3b is as follows:
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/pipeline_lc3b.png)
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/fetch.png)
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/decode.png)
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/agex.png)
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/mem.png)
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/sr.png)
+
+The simulator will take two input files:
+
+  1. A file entitled ucode which holds the control store that is located in the DE stage of the pipeline.
+  2. A file entitled isaprogramholding an assembled LC-3b program.
+
+The simulator will execute the input LC­3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC­3b.
+
+
 
 
 
