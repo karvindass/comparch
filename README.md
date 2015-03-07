@@ -40,7 +40,7 @@ And its corresponding ISA program:
 
 Here is how I implement this.
 
-Lab2. write an Instruction-Level Simulator for the LC-3b
+Lab2. Write an Instruction-Level Simulator for the LC-3b
 --------------------------------------------------------
 The simulator will take one input file entitled isaprogram, which is an assembled LC-3b program.And The simulator will execute the input LC-3b program, one instruction at a time, modifying the architectural state of the LC-3b after each instruction.
 
@@ -56,3 +56,25 @@ The purpose of the shell is to provide the user with commands to control the exe
     codes to the screen and the dump file.
     5. ? – print out a list of all shell commands.
     6. quit – quit the shell
+
+The simulation routines carry out the instruction­level simulation of the input LC-3b program. During the execution of an instruction, the simulator should take the current architectural state and modify it according to the ISA description of the instruction. To be more specific, the dumpsim file could be something like the following:
+
+    Current register/bus values :
+    -------------------------------------
+    Instruction Count : 2
+    PC                : 0x3054
+    CCs: N = 0  Z = 1  P = 0
+    Registers:
+    0: 0x0000
+    1: 0x3060
+    2: 0x0000
+    3: 0x0000
+    4: 0x0000
+    5: 0x0000
+    6: 0x0000
+    7: 0x0000
+    
+    Memory content [0x3bf4..0x3bf6] :
+    -------------------------------------
+     0x3bf4 (15348) : 0x0000
+     0x3bf6 (15350) : 0x0000
