@@ -102,7 +102,7 @@ Figure F shows the structure of microsequencer of LC-3b base machine.
 ![image](https://github.com/sparkfiresprairie/comparch/blob/master/usequencer.png)
 
 The simulator will take two input files:
-  1. A file entitled [ucode3](./lab3/ucode3) (fill it on our own, [excel version](./lab3/ucode3.xls)) which holds the control store.
+  1. A file entitled [ucode3](./lab3/ucode3) (fill it on our own, [Excel version](./lab3/ucode3.xls)) which holds the control store.
   2. A file entitled isaprogram which is an assembled LC-3b program.
 
 The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b. To be specific, the dumpsim file is something like this:
@@ -136,7 +136,7 @@ We are required to augment the existing LC-3b microarchitecture to support detec
 
   1. The changes made to state machine, data path, microsequencer.[[PDF](./lab4/Lab4Documentation.pdf)]
   2. The [assembly code](./lab4) for the interrupt service routine, the interrupt/exception vector table, the protection exception handler, the unaligned access exception handler, the unknown opcode exception handler, the user program, and the data for locations xC000– xC013.
-  3. The new microcode called [ucode4](./lab4/ucode4).([excel version](./lab4/ucode4.xls))
+  3. The new microcode called [ucode4](./lab4/ucode4).([Excel version](./lab4/ucode4.xls))
  
 [Here](./lab4/lc3bsim4.c) is how I implement this.
 
@@ -158,7 +158,7 @@ We should provide the following materials:
 
   1. The changes made to state machine, data path, microsequencer.[[PDF](./lab5/Lab5Documentation.pdf)]
   2. The [assembly code](./lab5) for the interrupt service routine, the interrupt/exception vector table, the page table, the user program, and the data for user program.
-  3. The new microcode called [ucode5](./lab5/ucode5) ([excel version](./lab5/ucode5.xls)).
+  3. The new microcode called [ucode5](./lab5/ucode5) ([Excel version](./lab5/ucode5.xls)).
 
 [Here](./lab5/lc3bsim5.c) is how I implement this.
 
@@ -182,10 +182,10 @@ The data path of pipelined LC-3b is as follows:
 
 The simulator will take two input files:
 
-  1. A file entitled [ucode](./lab6/ucode) which holds the control store that is located in the DE stage of the pipeline.([excel version](./lab6/ucode6.xls))
+  1. A file entitled [ucode](./lab6/ucode6) which holds the control store that is located in the DE stage of the pipeline.([Excel version](./lab6/ucode6.xls))
   2. A file entitled isaprogramholding an assembled LC-3b program.
 
-The simulator will execute the input LC­3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC­3b. To be specific, the dumpsim file is something like this:
+The simulator will execute the input LC-3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC-3b. To be specific, the dumpsim file is something like this:
 
     Current register/bus values :
     
