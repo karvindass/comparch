@@ -38,7 +38,7 @@ And its corresponding ISA program:
     0xF025 
     0x000A
 
-Here is how I implement this.
+[Here](./lab1/assembler.c) is how I implement this.
 
 Lab2. Write an Instruction-Level Simulator for the LC-3b
 --------------------------------------------------------
