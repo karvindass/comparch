@@ -182,7 +182,7 @@ The data path of pipelined LC-3b is as follows:
 
 The simulator will take two input files:
 
-  1. A file entitled ucode which holds the control store that is located in the DE stage of the pipeline.
+  1. A file entitled [ucode](./lab6/ucode) which holds the control store that is located in the DE stage of the pipeline.([excel version](./lab6/ucode6.xls))
   2. A file entitled isaprogramholding an assembled LC-3b program.
 
 The simulator will execute the input LC­3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC­3b. To be specific, the dumpsim file is something like this:
