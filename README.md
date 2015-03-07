@@ -185,7 +185,69 @@ The simulator will take two input files:
   1. A file entitled ucode which holds the control store that is located in the DE stage of the pipeline.
   2. A file entitled isaprogramholding an assembled LC-3b program.
 
-The simulator will execute the input LC­3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC­3b.
+The simulator will execute the input LC­3b program using the control store and the code you write inside the simulator functions to direct the simulation of the datapath and memory components of the LC­3b. To be specific, the dumpsim file is something like this:
+
+    Current register/bus values :
+    
+    Current architectural state :
+    -------------------------------------
+    Cycle Count     : 322
+    PC              : 0x0002
+    CCs: N = 1  Z = 0  P = 0
+    Registers:
+    0: 0xc014
+    1: 0xc014
+    2: 0x0052
+    3: 0x0007
+    4: 0x0000
+    5: 0x0000
+    6: 0x0000
+    7: 0x301e
+    
+    ------------- Stall Signals -------------
+    ICACHE_R        :  1
+    DEP_STALL       :  0
+    V_DE_BR_STALL   :  0
+    V_AGEX_BR_STALL :  0
+    MEM_STALL       :  0
+    V_MEM_BR_STALL  :  0
+    
+    ------------- DE   Latches --------------
+    DE_NPC          :  0x0002
+    DE_IR           :  0x0000
+    DE_V            :  1
+    
+    ------------- AGEX Latches --------------
+    AGEX_NPC        :  0x3020
+    AGEX_SR1        :  0xc014
+    AGEX_SR2        :  0x0000
+    AGEX_CC         :  4
+    AGEX_IR         :  0x0014
+    AGEX_DRID       :  0
+    AGEX_CS         :  01011000010010000000
+    AGEX_V          :  0
+    
+    ------------- MEM  Latches --------------
+    MEM_NPC         :  0x3020
+    MEM_ALU_RESULT  :  0x0c01
+    MEM_ADDRESS     :  0x3048
+    MEM_CC          :  4
+    MEM_IR          :  0x0014
+    MEM_DRID        :  0
+    MEM_CS          :  10010000000
+    MEM_V           :  0
+    
+    ------------- SR   Latches --------------
+    SR_NPC          :  0x3020
+    SR_DATA         :  0x0000
+    SR_ALU_RESULT   :  0x0c01
+    SR_ADDRESS      :  0x3048
+    SR_IR           :  0x0014
+    SR_DRID         :  0
+    SR_CS           :  0000
+    SR_V            :  0
+
+Here is how I implement this.
 
 
 
