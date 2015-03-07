@@ -83,10 +83,7 @@ Here is how I implement this.
 
 Lab3. Write a Cycle-Level Simulator for the LC-3b.
 -------------------------------------------------------
-The simulator will take two input files:
-  1. A file entitled ucode3which holds the control store.
-  2. A file entitled isaprogramwhich is an assembled LC-3b program.
-The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b.
+THe following pictures illustrate one example of a microarchitecture that implements the base machine of the LC-3b ISA. We have not included exception handling, interrupt processing, or virtual memory. We have used a very straightforward non-pipelined version. Interrupts, exceptions, virtual memory, pipelining, they will all come later - in lab 4,5,6.
 
 Figure C shows the skeleton of the microarchitecture of LC-3b.
 
@@ -104,3 +101,8 @@ Figure F shows the structure of microsequencer of LC-3b base machine.
 
 ![image](https://github.com/sparkfiresprairie/comparch/blob/master/usequencer.png)
 
+The simulator will take two input files:
+  1. A file entitled ucode3 (fill it on our own) which holds the control store.
+  2. A file entitled isaprogramwhich is an assembled LC-3b program.
+
+The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b.
