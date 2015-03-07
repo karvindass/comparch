@@ -1,19 +1,3 @@
-/*
-    Name 1: Xingyuan Wang 
-    Name 2: Yuchao Han
-    UTEID 1: xw3893
-    UTEID 2: yh7483
-*/
-
-/***************************************************************/
-/*                                                             */
-/*   LC-3b Instruction Level Simulator                         */
-/*                                                             */
-/*   EE 460N                                                   */
-/*   The University of Texas at Austin                         */
-/*                                                             */
-/***************************************************************/
-
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

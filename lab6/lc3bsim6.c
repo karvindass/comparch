@@ -1,17 +1,3 @@
-/*
- Name 1: Xingyuan Wang
- UTEID 1: xw3893
- */
-
-/***************************************************************/
-/*                                                             */
-/*   LC-3b Simulator - Lab 6                                   */
-/*                                                             */
-/*   EE 460N -- Spring 2013                                    */
-/*   The University of Texas at Austin                         */
-/*                                                             */
-/***************************************************************/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
