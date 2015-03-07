@@ -78,3 +78,21 @@ The simulation routines carry out the instruction­level simulation of the input
     -------------------------------------
      0x3bf4 (15348) : 0x0000
      0x3bf6 (15350) : 0x0000
+
+Here is how I implement this.
+
+Lab3. Write a Cycle-Level Simulator for the LC-3b.
+-------------------------------------------------------
+The simulator will take two input files:
+  1. A file entitled ucode3which holds the control store.
+  2. A file entitled isaprogramwhich is an assembled LC-3b program.
+The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b.
+
+Figure C shows the skeleton of the microarchitecture of LC-3b.
+
+Figure D gives a state machine for LC-3b.
+
+Figure E illustates the data path of LC-3b.
+
+Figure F shows the structure of microsequencer of LC-3b base machine.
+
