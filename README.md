@@ -90,9 +90,17 @@ The simulator will execute the input LC-3b program, using the microcode to direc
 
 Figure C shows the skeleton of the microarchitecture of LC-3b.
 
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/uarch.png)
+
 Figure D gives a state machine for LC-3b.
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/state_machine.png)
 
 Figure E illustates the data path of LC-3b.
 
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/data_path.png)
+
 Figure F shows the structure of microsequencer of LC-3b base machine.
+
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/usequencer.png)
 
