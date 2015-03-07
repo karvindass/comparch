@@ -146,13 +146,13 @@ We are required to augment the existing LC-3b microarchitecture in order to supp
 
 The specifications of virtual memory are as follows:
 
-    The virtual address space of the LC-3b is divided into pages of size 512 bytes. The LC-3b virtual address space has 128 pages, while physical memory has 32 frames. The LC-3b translates virtual addresses to physical addresses using a one-level translation scheme. Virtual pages 0–23 comprise the system space. They are mapped directly to frames 0–23 and are always resident in physical memory. The system space may be accessed with any instruction in supervisor mode, but only with a TRAP instruction in user mode. The remaining virtual pages (24–127) comprise the user space and are mapped to frames 24–31 via a page table stored in system space.
+The virtual address space of the LC-3b is divided into pages of size 512 bytes. The LC-3b virtual address space has 128 pages, while physical memory has 32 frames. The LC-3b translates virtual addresses to physical addresses using a one-level translation scheme. Virtual pages 0–23 comprise the system space. They are mapped directly to frames 0–23 and are always resident in physical memory. The system space may be accessed with any instruction in supervisor mode, but only with a TRAP instruction in user mode. The remaining virtual pages (24–127) comprise the user space and are mapped to frames 24–31 via a page table stored in system space.
+
+The page table contains PTEs for both the system and user space pages. It resides at the beginning of frame 8 of physical memory. A page table entry (PTE) contains only 9 bits of information but, for convenience, is represented by a full 16 bit word. Thus one PTE occupies two memory locations. The format of each PTE is as follows:
     
-    The page table contains PTEs for both the system and user space pages. It resides at the beginning of frame 8 of physical memory. A page table entry (PTE) contains only 9 bits of information but, for convenience, is represented by a full 16 bit word. Thus one PTE occupies two memory locations. The format of each PTE is as follows:
+![image](https://github.com/sparkfiresprairie/comparch/blob/master/pte.png)
     
-    ![image](https://github.com/sparkfiresprairie/comparch/blob/master/pte.png)
-    
-    If the protection (P) bit is cleared, the page is protected: it can only be accessed in supervisor mode or by a TRAP instruction. Otherwise, the page can be accessed in either user or supervisor mode. The valid (V) bit indicates whether the page is mapped to a frame in physical memory (V = 1) or not (V = 0). The modified (M) bit indicates whether the page has been written to since it was brought in (M = 1) or not (M = 0). The reference (R) bit is set on every access to the page and cleared every timer interrupt.
+If the protection (P) bit is cleared, the page is protected: it can only be accessed in supervisor mode or by a TRAP instruction. Otherwise, the page can be accessed in either user or supervisor mode. The valid (V) bit indicates whether the page is mapped to a frame in physical memory (V = 1) or not (V = 0). The modified (M) bit indicates whether the page has been written to since it was brought in (M = 1) or not (M = 0). The reference (R) bit is set on every access to the page and cleared every timer interrupt.
 
 
 
