@@ -134,9 +134,9 @@ Lab4. Augment the Existing LC-3b Microarchitecture to Support Detection and Hand
 -----------------------------------------------------------------------------------------------------------------
 We are required to augment the existing LC-3b microarchitecture to support detection and handling of one type of interrupts (timer) and three types of exceptions (protection, unaligned access, and unknown opcode). We have to provide microarchitectural support for handling interruptions and exceptions as well as code for their service routine.
 
-  1. The changes made to state machine, data path, microsequencer.[[PDF](./lab4/Lab4Documentation.pdf)]
+  1. The changes made to state machine, data path, microsequencer. [[PDF](./lab4/Lab4Documentation.pdf)]
   2. The [assembly code](./lab4) for the interrupt service routine, the interrupt/exception vector table, the protection exception handler, the unaligned access exception handler, the unknown opcode exception handler, the user program, and the data for locations xC000– xC013.
-  3. The new microcode called [ucode4](./lab4/ucode4).([Excel version](./lab4/ucode4.xls))
+  3. The new microcode called [ucode4](./lab4/ucode4). ([Excel version](./lab4/ucode4.xls))
  
 [Here](./lab4/lc3bsim4.c) is how I implement this.
 
@@ -156,7 +156,7 @@ If the protection (P) bit is cleared, the page is protected: it can only be acce
 
 We should provide the following materials:
 
-  1. The changes made to state machine, data path, microsequencer.[[PDF](./lab5/Lab5Documentation.pdf)]
+  1. The changes made to state machine, data path, microsequencer. [[PDF](./lab5/Lab5Documentation.pdf)]
   2. The [assembly code](./lab5) for the interrupt service routine, the interrupt/exception vector table, the page table, the user program, and the data for user program.
   3. The new microcode called [ucode5](./lab5/ucode5) ([Excel version](./lab5/ucode5.xls)).
 
