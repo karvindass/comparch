@@ -6,7 +6,7 @@ The course mainly talks about characteristics of instruction set architecture an
 
 Laboratory work includes completing the behavioral-level design of a microarchitecture (LC-3b). The following is how these labs work.
 
-Lab1 Write an assembler for the LC-3b Assembly Language
+Lab1. Write an Assembler for the LC-3b Assembly Language
 -------------------------------------------------------
 The LC-3b supports a rich, but lean, instruction set. Each 16-bit instruction consists of an opcode (bits[15:12]) plus 12 additional bits to specify the other information which is needed to carry out the work of that instruction. Figure A summarizes the 14 different opcodes in the LC-3b and the specification of the remaining bits of each instruction. The 15th and 16th 4-bit opcodes are not specified, but are reserved for future use. Figure B shows the entire LC-3b instruction set.
 
@@ -37,3 +37,22 @@ And its corresponding ISA program:
     0x0FFD 
     0xF025 
     0x000A
+
+Here is how I implement this.
+
+Lab2. write an Instruction-Level Simulator for the LC-3b
+--------------------------------------------------------
+The simulator will take one input file entitled isaprogram, which is an assembled LC-3b program.And The simulator will execute the input LC-3b program, one instruction at a time, modifying the architectural state of the LC-3b after each instruction.
+
+The simulator is partitioned into two main sections: the shell (provided) and the simulation routines.
+
+The purpose of the shell is to provide the user with commands to control the execution of the simulator. The shell accepts one or more ISA programs as arguments and loads them into the memory image. In order to extract information from the simulator, a file named dumpsim will be created to hold information requested from the simulator. The shell supports the following commands:
+    
+    1. go – simulate the program until a HALT instruction is executed.
+    2. run <n> – simulate the execution of the machine for n instructions
+    3. mdump <low> <high> – dump the contents of memory, from location low to location
+    high to the screen and the dump file
+    4. rdump – dump the current instruction count, the contents of R0–R7, PC, and condition
+    codes to the screen and the dump file.
+    5. ? – print out a list of all shell commands.
+    6. quit – quit the shell
