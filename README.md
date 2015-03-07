@@ -5,9 +5,9 @@ The LC-3b supports a rich, but lean, instruction set. Each 16-bit instruction co
 
 ![image](https://github.com/sparkfiresprairie/comparch/blob/master/entire_lc3b_ia.png)
 
-******************************************************************************************
+
 Lab1 Write an assembler for the LC­3b Assembly Language
-******************************************************************************************
+==========================================================
 The task of the assembler is that of line­by­line translation. The input is an assembly language file, and the output is an object (ISA) file (consisting of hexadecimal digits). To make it a little more concrete, here is a sample assembly language program:
 ;This program counts from 10 to 0 .ORIG x3000
 LEA R0, TEN
