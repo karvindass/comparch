@@ -83,7 +83,7 @@ Here is how I implement this.
 
 Lab3. Write a Cycle-Level Simulator for the LC-3b.
 -------------------------------------------------------
-THe following pictures illustrate one example of a microarchitecture that implements the base machine of the LC-3b ISA. We have not included exception handling, interrupt processing, or virtual memory. We have used a very straightforward non-pipelined version. Interrupts, exceptions, virtual memory, pipelining, they will all come later - in lab 4,5,6.
+The following pictures illustrate one example of a microarchitecture that implements the base machine of the LC-3b ISA. We have not included exception handling, interrupt processing, or virtual memory. We have used a very straightforward non-pipelined version. Interrupts, exceptions, virtual memory, pipelining, they will all come later - in lab 4,5,6.
 
 Figure C shows the skeleton of the microarchitecture of LC-3b.
 
@@ -102,7 +102,43 @@ Figure F shows the structure of microsequencer of LC-3b base machine.
 ![image](https://github.com/sparkfiresprairie/comparch/blob/master/usequencer.png)
 
 The simulator will take two input files:
-  1. A file entitled ucode3 (fill it on our own) which holds the control store.
-  2. A file entitled isaprogramwhich is an assembled LC-3b program.
+  1. A file entitled ucode3 (fill it on our own, excel version) which holds the control store.
+  2. A file entitled isaprogram which is an assembled LC-3b program.
 
-The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b.
+The simulator will execute the input LC-3b program, using the microcode to direct the simulation of the microsequencer, datapath, and memory components of the LC-3b. To be specific, the dumpsim file is something like this:
+
+    Current register/bus values :
+    -------------------------------------
+    Cycle Count  : 57
+    PC           : 0x300a
+    IR           : 0x3f81
+    STATE_NUMBER : 0x0018
+    
+    BUS          : 0x300b
+    MDR          : 0x3f81
+    MAR          : 0x300b
+    CCs: N = 1  Z = 0  P = 0
+    Registers:
+    0: 0xfffe
+    1: 0x0000
+    2: 0x0000
+    3: 0x0000
+    4: 0x0000
+    5: 0x0000
+    6: 0x300a
+    7: 0xfedc
+
+Here is how I implement this.
+
+Lab4 Augment the Existing LC-3b Microarchitecture to Support Detection and Handling of Interruptions and Exceptions
+-----------------------------------------------------------------------------------------------------------------
+We are required to augment the existing LC-3b microarchitecture to support detection and handling of one type of interrupts (timer) and three types of exceptions (protection, unaligned access, and unknown opcode). We have to provide microarchitectural support for handling interruptions and exceptions as well as code for their service routine.
+
+  1. The changes made to state machine, data path, microsequencer.
+  2. The assembly code for the interrupt service routine, the interrupt/exception vector table, the protection exception handler, the unaligned access exception handler, the unknown opcode exception handler, the user program, and the data for locations xC000– xC013, called int.asm, vector_table.asm, except_prot.asm, except_unaligned.asm, except_unknown.asm, add.asm, and data.asm, respectively.
+  3. The new microcode called ucode4.
+ 
+Here is how I implement this.
+
+Lab5 Augment the Existing LC-3b Microarchitecture to Support Virtual to Physical Address Translation
+-----------------------------------------------------------------------------------------------------
